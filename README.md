@@ -9,10 +9,6 @@
 </p>
 
 <p align="center">
-  <img src="assets/report.png" title="TokIntel" alt="TokIntel" width="600"/>
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white" alt="Python version">
   <img src="https://img.shields.io/badge/RapidAPI-API-blue?logo=rapidapi&logoColor=white">
   <img src="https://img.shields.io/badge/License-MIT-green?logo=open-source-initiative&logoColor=white" alt="License">
@@ -25,7 +21,7 @@
 - 🔎 **Deep Reconnaissance:** Email & phone number lookup.
 - 📊 **Rich Metadata Extraction:** Recovers creation dates, bios, full metrics, and high-res avatars.
 - ⚡ **Fast API-Based Checking:** Powered by rapid external data sources.
-- 📄 **JSON Report Generation:** Automatically saves all structured results locally.
+- 📄 **JSON and TXT Report Generation:** Automatically saves all structured results locally.
 - 🎨 **Colored CLI Interface:** Clean, aesthetic, and professional terminal output.
 - 🔐 **Secure API Key Handling:** Credentials strictly managed via `.env`.
 - 📂 **Batch Processing:** Scan lists of targets via TXT file.

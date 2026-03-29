@@ -164,6 +164,62 @@ def save_report(data, filename):
     return path
 
 # ==============================
+# TXT REPORT
+# ==============================
+def save_txt_report(report, filename):
+    path = os.path.join("reports", filename)
+
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("TokIntel Report\n")
+        f.write("=" * 40 + "\n\n")
+
+        summary = report["summary"]
+        f.write(f"Total   : {summary['total']}\n")
+        f.write(f"Hits    : {summary['hits']}\n")
+        f.write(f"Misses  : {summary['misses']}\n")
+        f.write(f"Errors  : {summary['errors']}\n")
+        f.write("\n" + "=" * 40 + "\n\n")
+
+        for r in report["results"]:
+            f.write(f"🎯 Target : {r['target']}\n")
+            f.write(f"📌 Status : {r['status'].upper()}\n\n")
+
+            if r["status"] == "hit" and r["raw"]:
+                profile = r["raw"].get("tiktok_profile", {})
+                extra = profile.get("additional_info", {})
+
+                f.write("👤 Profile Info\n")
+                f.write("-" * 40 + "\n")
+                f.write(f"Username   : {profile.get('username')}\n")
+                f.write(f"Name       : {profile.get('full_name')}\n")
+                f.write(f"Bio        : {extra.get('signature')}\n")
+                f.write(f"Language   : {extra.get('language')}\n")
+                f.write(f"Verified   : {extra.get('verified')}\n")
+                f.write(f"Private    : {extra.get('private_account')}\n\n")
+
+                f.write("📊 Stats\n")
+                f.write("-" * 40 + "\n")
+                f.write(f"Followers  : {extra.get('follower_count')}\n")
+                f.write(f"Following  : {extra.get('following_count')}\n")
+                f.write(f"Likes      : {extra.get('heart_count')}\n")
+                f.write(f"Videos     : {extra.get('video_count')}\n")
+                f.write(f"Friends    : {extra.get('friend_count')}\n\n")
+
+                f.write("🔗 Links\n")
+                f.write("-" * 40 + "\n")
+                f.write(f"Profile URL: {profile.get('profile_url')}\n")
+                f.write(f"Avatar URL : {profile.get('avatar_url')}\n\n")
+
+                created = extra.get("create_time")
+                if created:
+                    created_date = datetime.fromtimestamp(created, UTC).strftime('%Y-%m-%d')
+                    f.write(f"📅 Created  : {created_date}\n\n")
+
+            f.write("=" * 40 + "\n\n")
+
+    return path
+
+# ==============================
 # MAIN
 # ==============================
 
@@ -179,16 +235,13 @@ def main():
     parser.add_argument("--donate", action="store_true", help="Support the project")
 
     args = parser.parse_args()
-    
-    
-    # 💖 DONATE (FIRST OF ALL)
+
     if args.donate:
         print(Fore.MAGENTA + "\n💖 Support TokIntel\n")
         print(Fore.CYAN + "☕ https://buymeacoffee.com/HackUnderway")
         print(Fore.WHITE + "🙏 Thank you for supporting the project!\n")
         return
-    
-    # 🔥 API (IMPORTANT)
+
     if args.set_api:
         API_KEY = setup_api_key()
         return
@@ -196,7 +249,6 @@ def main():
     if not API_KEY:
         API_KEY = setup_api_key()
 
-    # 🔥 THEN: INPUT
     if args.input:
         targets = [args.input]
         prefix = "phone" if is_phone(args.input) else "email"
@@ -208,7 +260,7 @@ def main():
     else:
         parser.print_help()
         return
-    
+
     print(Fore.CYAN + f"\n[+] Targets: {len(targets)}\n")
 
     checker = TikTokChecker(API_KEY)
@@ -255,7 +307,6 @@ def main():
 
         time.sleep(DELAY)
 
-    # REPORT
     ensure_reports_folder()
 
     report = {
@@ -268,8 +319,13 @@ def main():
         "results": results
     }
 
-    filename = generate_filename(f"report_{prefix}")
-    filepath = save_report(report, filename)
+    # JSON
+    json_filename = generate_filename(f"report_{prefix}")
+    json_path = save_report(report, json_filename)
+
+    # TXT
+    txt_filename = json_filename.replace(".json", ".txt")
+    txt_path = save_txt_report(report, txt_filename)
 
     print(Fore.GREEN + "\n✅ Finished")
     print(f"   Total: {len(results)}")
@@ -277,8 +333,9 @@ def main():
     print(f"   Misses: {len(misses)}")
     print(f"   Errors: {len(errors)}")
 
-    print(Fore.CYAN + "\n📁 Report:")
-    print(f"   {filepath}")
+    print(Fore.CYAN + "\n📁 Reports:")
+    print(f"   JSON: {json_path}")
+    print(f"   TXT : {txt_path}")
 
 # ==============================
 if __name__ == "__main__":
