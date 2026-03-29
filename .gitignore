@@ -1,0 +1,15 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+
+# Python compiled files (generated on run)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configuration and Credentials (CRITICAL)
+.env
+
+# Research Reports (DO NOT UPLOAD)
+reports/
