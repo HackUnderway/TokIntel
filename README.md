@@ -84,6 +84,7 @@ python3 TokIntel.py --set-api
 <p align="center">
   <img src="assets/Enter_API.png" title="TokIntel" alt="TokIntel" width="600"/>
 </p>
+
 ---
 
 # 💻 Usage
