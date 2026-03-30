@@ -37,7 +37,7 @@
 
 TokIntel uses the following API:
 
-NOMBRE | KEY |
+NAME | KEY |
 | ------------------- |-------------- |
 | [TikTok Checker API](https://rapidapi.com/araigiichikl7lc1/api/tiktok-email-phone-lookup) |  🔑 (Required) |
 
