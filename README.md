@@ -27,6 +27,31 @@
 - 📂 **Batch Processing:** Scan lists of targets via TXT file.
 - 💡 **Automatic API Setup:** Interactive onboarding on the first run.
 
+---
+
+## 🆓 Account creation date, no API key needed
+
+Want to know when a TikTok account was created without setting up an API key? `tiktok_created.py` reads the `createTime` that TikTok embeds in the public profile page, so a username is all you need.
+
+```bash
+python3 tiktok_created.py charlidamelio
+python3 tiktok_created.py @nasa https://www.tiktok.com/@zachking
+```
+
+You get the account creation date plus the basics (followers, likes, bio, verified, private). It also decodes a video URL or ID to its upload time, using the snowflake timestamp inside the id (`id >> 32`). Reports save to `reports/` as JSON and TXT, the same as the main tool.
+
+### Start the app (interactive UI)
+
+The UI shows a TikTok style banner and a prompt where you type usernames one after another.
+
+- **macOS:** double click `TokIntel.app` (or `TokIntel.command`)
+- **Windows:** double click `start.bat`
+- **Any terminal (macOS or Linux):** run `./start.sh`
+
+The launcher creates its own virtual environment and installs `requests`, `colorama`, and `rich` on first run, so there is nothing to set up by hand.
+
+_This no-key lookup mode is an addition to TokIntel by Victor Bancayan (Hack Underway), contributed by [@Thyfwx](https://github.com/Thyfwx)._
+
 ## 📌 Prerequisites
 
 - Python 3.8+
