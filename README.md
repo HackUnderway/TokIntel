@@ -1,7 +1,7 @@
 <h1 align="center">TokIntel 👁</h1>
 
 <p align="center">
-  <strong>Advanced TikTok OSINT Framework</strong> to find accounts by email or phone and extract bios, creation dates, and full profile data 🕵🏽‍♂️
+  <strong>Advanced TikTok OSINT Framework</strong> to extract profiles, bios, creation dates, and full metadata from TikTok usernames 🕵🏽‍♂️
 </p>
 
 <p align="center">
@@ -10,7 +10,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8+-3776AB?logo=python&logoColor=white" alt="Python version">
-  <img src="https://img.shields.io/badge/RapidAPI-API-blue?logo=rapidapi&logoColor=white">
+  <img src="https://img.shields.io/badge/Apify-API-blue?logo=apify&logoColor=white">
   <img src="https://img.shields.io/badge/License-MIT-green?logo=open-source-initiative&logoColor=white" alt="License">
 </p>
 
@@ -18,9 +18,9 @@
 
 ## 🚀 Features
 
-- 🔎 **Deep Reconnaissance:** Email & phone number lookup.
-- 📊 **Rich Metadata Extraction:** Recovers creation dates, bios, full metrics, and high-res avatars.
-- ⚡ **Fast API-Based Checking:** Powered by rapid external data sources.
+- 🔎 **Profile Reconnaissance:** Extracts full TikTok profile data from usernames.
+- 📊 **Rich Metadata Extraction:** Recovers creation dates, bios, full metrics (followers, likes, videos, friends, etc.), and high-res avatars.
+- ⚡ **Fast API-Based Checking:** Powered by Apify's TikTok Profile Scraper.
 - 📄 **JSON and TXT Report Generation:** Automatically saves all structured results locally.
 - 🎨 **Colored CLI Interface:** Clean, aesthetic, and professional terminal output.
 - 🔐 **Secure API Key Handling:** Credentials strictly managed via `.env`.
@@ -30,32 +30,31 @@
 ## 📌 Prerequisites
 
 - Python 3.8+
+- Dependencies: `apify-client`, `python-dotenv`, `colorama`, `alive-progress`
 
-- Librerías: `requests`, `python-dotenv`, `colorama`
-
-# 🔑 API Key (RapidAPI)
+# 🔑 API Key (Apify)
 
 TokIntel uses the following API:
 
-NAME | KEY |
-| ------------------- |-------------- |
-| [TikTok Checker API](https://rapidapi.com/araigiichikl7lc1/api/tiktok-email-phone-lookup) |  🔑 (Required) |
+| NAME | KEY |
+| ---- | --- |
+| [TikTok Profile Scraper](https://apify.com/clockworks/tiktok-profile-scraper) | 🔑 (Required) |
 
 ### Steps:
-1. Go to RapidAPI
-2. Subscribe to the **free plan**
-3. Copy your API Key
+1. Go to [Apify](https://apify.com) and create a free account.
+2. Get your **API Token** from your Apify account settings.
+3. Copy your API Token.
 
 <p align="center">
-  <img src="assets/API_Key.png" title="TokIntel" alt="TokIntel" width="600"/>
+  <img src="assets/TikTok_Profile_Scraper.png" title="TokIntel" alt="TokIntel" width="600"/>
 </p>
 
 <p align="center">
-  <img src="assets/TikTok_Checker_API.png" title="TokIntel" alt="TokIntel" width="600"/>
+  <img src="assets/TikTok_Scraper.png" title="TokIntel" alt="TokIntel" width="600"/>
 </p>
 
 <p align="center">
-  <img src="assets/Api.png" title="TokIntel" alt="TokIntel" width="600"/>
+  <img src="assets/Api_Tokens.png" title="TokIntel" alt="TokIntel" width="600"/>
 </p>
 
 
@@ -71,15 +70,15 @@ Your key will be automatically saved in:
 
 .env
 
+<p align="center">
+  <img src="assets/set_api.png" title="TokIntel" alt="TokIntel" width="600"/>
+</p>
+
 You can update it anytime:
 
 ```bash
 python3 TokIntel.py --set-api
 ```
-
-<p align="center">
-  <img src="assets/Enter_API.png" title="TokIntel" alt="TokIntel" width="600"/>
-</p>
 
 ---
 
@@ -87,28 +86,23 @@ python3 TokIntel.py --set-api
 
 ### 🔹 Single target
 ```bash
-python3 TokIntel.py --input example@gmail.com
+python3 TokIntel.py --user jeyzetaoficial
 ```
 ```bash
-python3 TokIntel.py --input +519XXXXXXXX
+python3 TokIntel.py --user jeyzetaoficial --show-avatar
+```
+```bash
+python3 TokIntel.py --users-file targets.txt
+```
+`targets.txt should contain one username per line (without @).`
+```bash
+python3 TokIntel.py -h
 ```
 
 <p align="center">
-  <img src="assets/help.png" title="TokIntel" alt="TokIntel" width="600"/>
+  <img src="assets/help_tokintel.png" title="TokIntel" alt="TokIntel" width="600"/>
 </p>
 
----
-
-### 🔹 Multiple targets
-```bash
-python3 TokIntel.py --file targets.txt
-```
----
-
-### 💖 Support
-```bash
-python3 TokIntel.py --donate
-```
 ---
 
 # 📁 Reports
@@ -179,6 +173,19 @@ For questions, bug reports, or suggestions, please contact: info@hackunderway.co
 [![Twitter/X](https://img.shields.io/badge/Twitter/X-000000?style=for-the-badge&logo=x&logoColor=white)](https://x.com/JeyZetaOficial)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/hackunderway)
 [![TryHackMe](https://img.shields.io/badge/TryHackMe-212C42?style=for-the-badge&logo=tryhackme&logoColor=white)](https://tryhackme.com/p/JeyZeta)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/hackunderway)
+[![HackTheBox](https://img.shields.io/badge/HackTheBox-111927?style=for-the-badge&logo=hackthebox&logoColor=9FEF00)](https://profile.hackthebox.com/profile/019d59e8-fcc1-72e9-9aad-ff79f46d261d)
+
+### 💰 Bitcoin Donations
+Support the project with Bitcoin:
+
+### Address:
+```bash
+bc1qjd5pu8kmdq1jun3qyw5e9mj4kdef9n8sutj7j4
+```
+
+<p align="center"> <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1qjd5pu8kmdq1jun3qyw5e9mj4kdef9n8sutj7j4" alt="Bitcoin QR"> </p>
+Thank you for your support! 🙏
 
 ## ☕️ Support the project
 
@@ -192,6 +199,6 @@ If you like this tool, consider buying me a coffee:
 
 [![Kali Linux](https://img.shields.io/badge/Kali_Linux-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)](https://www.kali.org/)
 
-from <img src="https://i.imgur.com/ngJCbSI.png" title="Perú"> made in <img src="https://i.imgur.com/NNfy2o6.png" title="Python"> with <img src="https://i.imgur.com/S86RzPA.png" title="Love"> by: <font color="red">Victor Bancayan</font>
+from <img src="https://i.imgur.com/ngJCbSI.png" title="Perú" width="20"/> Peru, made in <img src="https://i.imgur.com/NNfy2o6.png" title="Python" width="20"/> with <img src="https://i.imgur.com/S86RzPA.png" title="Love" width="20"/> by: Victor Bancayan
 
 © 2026
