@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/TokIntel.png" title="TokIntel" alt="TokIntel" width="600"/>
+  <img src="assets/TokIntel_Demo.png" title="TokIntel" alt="TokIntel" width="600"/>
 </p>
 
 <p align="center">
