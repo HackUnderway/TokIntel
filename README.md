@@ -110,7 +110,7 @@ python3 TokIntel.py -h
 All results are saved in the `/reports/` directory.
 
 Example file:
-`report_email_20260328_xxxxxx.json`
+`reports/report_user_20260716_125859_u2943t.json`
 
 > [!TIP]
 > **Note:** Check the generated JSON report for advanced profile metadata not displayed in the terminal.
