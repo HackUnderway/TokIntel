@@ -181,10 +181,10 @@ Support the project with Bitcoin:
 
 ### Address:
 ```bash
-bc1qjd5pu8kmdq1jun3qyw5e9mj4kdef9n8sutj7j4
+bc1qjd5pu8kmdqljun3qyw5e9mj4kdef9n8sutj7j4
 ```
 
-<p align="center"> <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1qjd5pu8kmdq1jun3qyw5e9mj4kdef9n8sutj7j4" alt="Bitcoin QR"> </p>
+<p align="center"> <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1qjd5pu8kmdqljun3qyw5e9mj4kdef9n8sutj7j4" alt="Bitcoin QR"> </p>
 Thank you for your support! 🙏
 
 ## ☕️ Support the project
